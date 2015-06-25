@@ -12,11 +12,11 @@
 
   html, body {
     height: 100%;
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: "Roboto", helvetica, arial, sans-serif;
   }
 
   body {
-    background: #ffffff;
+    background: #3e94ec;
   }
 
   .menu {
@@ -84,6 +84,10 @@
         %h1
           = link_to 'HOME', root_path
       %li
-        = link_to 'CONTACTS', contacts_path
+        %h2
+          = link_to 'CONTACTS', contacts_path
+      %li
+        %h2
+          = link_to 'ADD CONTACT', new_contact_path
   %i.line
   %i.line
