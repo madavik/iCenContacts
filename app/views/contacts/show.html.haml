@@ -1,0 +1,14 @@
+%p
+  %strong Name:
+  = @contact.Name
+%p
+  %strong Email:
+  = @contact.Email
+%p
+  %strong Phone:
+  = @contact.Phone
+%p
+  %strong Address:
+  = @contact.Address
+= link_to 'Edit', edit_contact_path(@contact)
+= link_to 'Back', contacts_path

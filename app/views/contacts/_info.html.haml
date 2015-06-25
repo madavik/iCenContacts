@@ -1,0 +1,28 @@
+= form_for @contact do |f|
+  - if @contact.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@contact.errors.count, "error")
+        Stopped
+        this contact from being entered in:
+      %ul
+        - @contact.errors.full_messages.each do |msg|
+          %li= msg
+  %p
+    = f.label :Name
+    %br/
+    = f.text_field :Name
+  %p
+    = f.label :Email
+    %br/
+    = f.text_field :Email
+  %p
+    = f.label :Phone
+    %br/
+    = f.text_field :Phone
+  %p
+    = f.label :Address
+    %br/
+    = f.text_field :Address
+  %p
+    = f.submit

@@ -6,7 +6,10 @@ gem 'rails', '3.2.17'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
-
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'autoprefixer-rails'
+# once you go haml, you don't go back
+gem 'haml-rails'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -21,7 +24,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
-
+gem 'strong_parameters'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
