@@ -101,6 +101,9 @@
     line-height: 200px;
     text-shadow: 0 2px 0 rgba(0, 0, 0, 0.4);
   }
+  .by{
+      color: #ccc;
+  }
 :javascript
   (function() {
     $(function() {
@@ -137,3 +140,5 @@
 %h2
   %a.action-button.shadow.animate.green{:href => "contacts"} GET STARTED
 = image_tag("iCentris.png")
+%p.by
+  Brought to you by Joseph Gibson

@@ -2,6 +2,7 @@
   @import url(http://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100);
 
   body {
+    text-align: center;
     background-color: #3e94ec;
     font-family: "Roboto", helvetica, arial, sans-serif;
     font-size: 16px;
@@ -143,27 +144,55 @@
   td.text-right {
     text-align: right;
   }
+  .animate
+  {
+    transition: all 0.1s;
+    -webkit-transition: all 0.1s;
+  }
+
+  .action-button
+  {
+    padding: 10px 40px;
+    margin: 0px 10px 10px 0px;
+    border-radius: 10px;
+    font-size: 25px;
+    color: #FFF;
+    text-decoration: none;
+  }
+  a:hover.green {
+      color: #fff;
+  }
+  .green
+  {
+    background-color: #82BF56;
+    border-bottom: 5px solid #669644;
+    text-shadow: 0px -2px #669644;
+  }
+  .action-button:active
+  {
+    transform: translate(0px,5px);
+    -webkit-transform: translate(0px,5px);
+    border-bottom: 1px solid;
+  }
+
 = render 'menu'
-%html{:lang => "en"}
-  %head
-    %meta{:charset => "utf-8"}/
-    %title Table Style
-    %meta{:content => "initial-scale=1.0; maximum-scale=1.0; width=device-width;", :name => "viewport"}/
-  %body
-    .table-title
-      %h3 Listing Contacts
-    %table.table-fill
-      %thead
-        %tr
-          %th.text-left Name
-          %th.text-left Email
-          %th.text-left Phone
-          %th.text-left Address
-          %th.text-left Edit
-      %tbody.table-hover
-        %tr
-          %td.text-left= @contact.Name
-          %td.text-left= @contact.Email
-          %td.text-left= @contact.Phone
-          %td.text-left= @contact.Address
-          %td.text-left= link_to 'Edit', edit_contact_path(@contact)
+%body
+  .table-title
+    %h3 Listing Contacts
+  %table.table-fill
+    %thead
+      %tr
+        %th.text-left Name
+        %th.text-left Email
+        %th.text-left Phone
+        %th.text-left Address
+        %th.text-left Edit
+    %tbody.table-hover
+      %tr
+        %td.text-left= @contact.Name
+        %td.text-left= @contact.Email
+        %td.text-left= @contact.Phone
+        %td.text-left= @contact.Address
+        %td.text-left= link_to 'Edit', edit_contact_path(@contact)
+%br
+%a.action-button.shadow.animate.green{:href => contacts_path} Back

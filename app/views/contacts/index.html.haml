@@ -2,6 +2,7 @@
   @import url(http://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100);
 
   body {
+    text-align: center;
     background-color: #3e94ec;
     font-family: "Roboto", helvetica, arial, sans-serif;
     font-size: 16px;
@@ -150,7 +151,6 @@
 
   .action-button
   {
-  text-align: center;
     padding: 10px 40px;
     margin: 0px 10px 10px 0px;
     border-radius: 10px;
@@ -158,14 +158,14 @@
     color: #FFF;
     text-decoration: none;
   }
-  a:hover.red {
+  a:hover.green {
       color: #fff;
   }
-  .red
+  .green
   {
-    background-color: #E74C3C;
-    border-bottom: 5px solid #BD3E31;
-    text-shadow: 0px -2px #BD3E31;
+    background-color: #82BF56;
+    border-bottom: 5px solid #669644;
+    text-shadow: 0px -2px #669644;
   }
   .action-button:active
   {
@@ -199,5 +199,5 @@
           %td.text-left= link_to 'EDIT', edit_contact_path(contact)
           %td.text-left= link_to 'ERASE', contact_path(contact),method: :delete,data: { confirm: 'Do you really want to lose your FRIEND?' }
   %br
-%a.action-button.shadow.animate.red{:href => new_contact_path} ADD FRIEND
+%a.action-button.shadow.animate.green{:href => new_contact_path} ADD FRIEND
 
