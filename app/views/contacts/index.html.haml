@@ -22,7 +22,6 @@
      font-size: 30px;
      font-weight: 400;
      font-style:normal;
-     font-family: "Roboto", helvetica, arial, sans-serif;
      text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
      text-transform:uppercase;
   }
@@ -143,33 +142,62 @@
   td.text-right {
     text-align: right;
   }
+  .animate
+  {
+    transition: all 0.1s;
+    -webkit-transition: all 0.1s;
+  }
+
+  .action-button
+  {
+  text-align: center;
+    padding: 10px 40px;
+    margin: 0px 10px 10px 0px;
+    border-radius: 10px;
+    font-size: 25px;
+    color: #FFF;
+    text-decoration: none;
+  }
+  a:hover.red {
+      color: #fff;
+  }
+  .red
+  {
+    background-color: #E74C3C;
+    border-bottom: 5px solid #BD3E31;
+    text-shadow: 0px -2px #BD3E31;
+  }
+  .action-button:active
+  {
+    transform: translate(0px,5px);
+    -webkit-transform: translate(0px,5px);
+    border-bottom: 1px solid;
+  }
 = render 'menu'
-%html{:lang => "en"}
-  %head
-    %meta{:charset => "utf-8"}/
-    %title Table Style
-    %meta{:content => "initial-scale=1.0; maximum-scale=1.0; width=device-width;", :name => "viewport"}/
-  %body
-    .table-title
-      %h3 Listing Contacts
-    %table.table-fill
-      %thead
+%body
+  .table-title
+    %h3 YOUR FRIENDS
+  %table.table-fill
+    %thead
+      %tr
+        %th.text-left Name
+        %th.text-left Email
+        %th.text-left Phone
+        %th.text-left Address
+        %th.text-left SEE
+        %th.text-left EDIT
+        %th.text-left ERASE
+    %tbody.table-hover
+      - @contacts.sort_by!{ |m| m.Name.downcase }
+      - @contacts.each do |contact|
         %tr
-          %th.text-left Name
-          %th.text-left Email
-          %th.text-left Phone
-          %th.text-left Address
-          %th.text-left Show
-          %th.text-left Edit
-          %th.text-left Destroy
-      %tbody.table-hover
-        - @contacts.sort_by!{ |m| m.Name.downcase }
-        - @contacts.each do |contact|
-          %tr
-            %td.text-left= contact.Name
-            %td.text-left= contact.Email
-            %td.text-left= contact.Phone
-            %td.text-left= contact.Address
-            %td.text-left= link_to 'Show', contact_path(contact)
-            %td.text-left= link_to 'Edit', edit_contact_path(contact)
-            %td.text-left= link_to 'Destroy', contact_path(contact),method: :delete,data: { confirm: 'Are you sure?' }
+          %td.text-left= contact.Name
+          %td.text-left= contact.Email
+          %td.text-left= contact.Phone
+          %td.text-left= contact.Address
+          %td.text-left= link_to 'SEE', contact_path(contact)
+          %td.text-left= link_to 'EDIT', edit_contact_path(contact)
+          %td.text-left= link_to 'ERASE', contact_path(contact),method: :delete,data: { confirm: 'Do you really want to lose your FRIEND?' }
+  %br
+%a.action-button.shadow.animate.red{:href => new_contact_path} ADD FRIEND
+
