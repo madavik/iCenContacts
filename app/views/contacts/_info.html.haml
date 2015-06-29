@@ -102,7 +102,6 @@
   }
 :javascript
   $(document).ready(function(){
-
     function updateText(event){
       var input=$(this);
       setTimeout(function(){
@@ -117,7 +116,6 @@
     $(".floating-placeholder input").keydown(updateText);
     $(".floating-placeholder input").change(updateText);
     $(".floating-placeholder input").each(updateText);
-    $(".field-with-errors").each(updateText);
   });
 .errors
   - if @contact.errors.any?
