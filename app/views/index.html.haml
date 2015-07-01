@@ -1,0 +1,144 @@
+:css
+  @import url(http://fonts.googleapis.com/css?family=Josefin+Slab:700);
+  body {
+      background: #3e94ec;
+      color: white;
+      text-align: center;
+      font-family: "Roboto", helvetica, arial, sans-serif;
+  }
+    a:hover.green {
+        color: #fff;
+    }
+  .animate
+  {
+    transition: all 0.1s;
+    -webkit-transition: all 0.1s;
+  }
+
+  .action-button
+  {
+
+    padding: 10px 40px;
+    margin: 0px 10px 10px 0px;
+    border-radius: 10px;
+    font-size: 25px;
+    color: #FFF;
+    text-decoration: none;
+  }
+  .green
+  {
+    background-color: #82BF56;
+    border-bottom: 5px solid #669644;
+    text-shadow: 0px -2px #669644;
+  }
+  .action-button:active
+  {
+    transform: translate(0px,5px);
+    -webkit-transform: translate(0px,5px);
+    border-bottom: 1px solid;
+  }
+  .slide:nth-of-type(1) {
+    background-color: #2c3e50;
+  }
+
+  .slide:nth-of-type(2) {
+    background-color: #3e94ec;
+  }
+
+  .slide:nth-of-type(3) {
+    font-size: 4em;
+    background-color: #82BF56;
+  }
+
+  .slider {
+    width: 300px;
+    height: 200px;
+    overflow: hidden;
+    border: 10px solid white;
+    margin: 0 auto;
+    margin-top: 2em;
+    border-radius: 3px;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
+  }
+  .slider .slide {
+    float: left;
+  }
+  .slider .slides {
+    width: 900px;
+    -moz-transition: 500ms;
+    -o-transition: 500ms;
+    -webkit-transition: 500ms;
+    transition: 500ms;
+    -moz-transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+  }
+  .slider .slides.slide-1 {
+    -moz-transform: translateX(0px);
+    -ms-transform: translateX(0px);
+    -webkit-transform: translateX(0px);
+    transform: translateX(0px);
+  }
+  .slider .slides.slide-2 {
+    -moz-transform: translateX(-300px);
+    -ms-transform: translateX(-300px);
+    -webkit-transform: translateX(-300px);
+    transform: translateX(-300px);
+  }
+  .slider .slides.slide-3 {
+    -moz-transform: translateX(-600px);
+    -ms-transform: translateX(-600px);
+    -webkit-transform: translateX(-600px);
+    transform: translateX(-600px);
+  }
+
+  .slide {
+    width: 300px;
+    height: 200px;
+    text-align: center;
+    color: #fff;
+    font-size: 5em;
+    line-height: 200px;
+    text-shadow: 0 2px 0 rgba(0, 0, 0, 0.4);
+  }
+  .by{
+      color: #ccc;
+  }
+:javascript
+  (function() {
+    $(function() {
+      var run_slider;
+      run_slider = function(classname) {
+        var change_classes, showing_slide;
+        showing_slide = 1;
+        change_classes = function() {
+          var i, n, numslides, ref, slides;
+          slides = $(classname + " .slides");
+          numslides = slides.children().length;
+          for (n = i = 1, ref = numslides; 1 <= ref ? i <= ref : i >= ref; n = 1 <= ref ? ++i : --i) {
+            slides.removeClass("slide-" + n);
+          }
+          slides.addClass("slide-" + showing_slide);
+          return showing_slide = (showing_slide % numslides) + 1;
+        };
+        return change_classes;
+      };
+      return setInterval(run_slider(".slider"), 2000);
+    });
+
+  }).call(this);
+= render 'contacts/menu'
+.slider
+  .slides
+    .slide
+      SAVE
+    .slide
+      YOUR
+    .slide
+      FRIENDS
+%h1 MAKE A CONTACT LIST!
+%h2
+  %a.action-button.shadow.animate.green{:href => "contacts"} GET STARTED
+= image_tag("iCentris.png")
+%p.by
+  Brought to you by Joseph Gibson
